@@ -1,3 +1,4 @@
+import 'package:assignment/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 class FrontScreen extends StatefulWidget {
@@ -8,6 +9,18 @@ class FrontScreen extends StatefulWidget {
 }
 
 class _FrontScreenState extends State<FrontScreen> {
+  void initState() {
+    Future.delayed(Duration(seconds: 3), () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => SplashScreen(),
+        ),
+      );
+    });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
