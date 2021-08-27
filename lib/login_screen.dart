@@ -27,7 +27,7 @@ class _LogInScreenState extends State<LogInScreen> {
             padding: EdgeInsets.all(20.0),
             child: Column(
               children: [
-                SizedBox(height: screenSize.height / 20),
+                SizedBox(height: screenSize.height / 30),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
@@ -164,6 +164,60 @@ class _LogInScreenState extends State<LogInScreen> {
                       },
                     )
                   ],
+                ),
+                SizedBox(height: 5),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Column(
+                      children: [
+                        Divider(
+                          color: Colors.teal.shade100,
+                          thickness: 1.0,
+                        ),
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        Text("Or"),
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        Divider(
+                          color: Colors.teal.shade100,
+                          thickness: 1.0,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Center(
+                      child: Text(
+                        "By continue to login, you accept our company's",
+                      ),
+                    ),
+                    InkWell(
+                      child: Text(
+                        "Trouble login?",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => TrubleLog(),
+                          ),
+                        );
+                      },
+                    ),
+                  ],
                 )
               ],
             ),
@@ -171,13 +225,5 @@ class _LogInScreenState extends State<LogInScreen> {
         ),
       ),
     );
-  }
-
-  bool isNull() {
-    if (_email.text.isEmpty || _password.text.isEmpty) {
-      return false;
-    } else {
-      return true;
-    }
   }
 }
