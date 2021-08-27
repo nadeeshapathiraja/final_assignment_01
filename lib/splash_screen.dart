@@ -51,7 +51,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   ),
                 );
               },
-            )
+            ),
           ],
         ),
       ),
@@ -76,7 +76,7 @@ class CustemButton extends StatelessWidget {
     return InkWell(
       onTap: ontap,
       child: Container(
-        height: 40,
+        height: 50,
         width: 5 * screenSize.width / 6,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10.0),
