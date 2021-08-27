@@ -65,7 +65,7 @@ class _LogInScreenState extends State<LogInScreen> {
                     ),
                   ],
                 ),
-                SizedBox(height: screenSize.height / 20),
+                SizedBox(height: screenSize.height / 30),
                 Column(
                   children: [
                     Row(
@@ -75,7 +75,7 @@ class _LogInScreenState extends State<LogInScreen> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 10),
+                    SizedBox(height: 5),
                     TextField(
                       controller: _email,
                       decoration: InputDecoration(
@@ -113,7 +113,7 @@ class _LogInScreenState extends State<LogInScreen> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 10),
+                    SizedBox(height: 5),
                     TextField(
                       controller: _password,
                       obscureText: true,
