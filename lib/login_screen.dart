@@ -1,3 +1,4 @@
+import 'package:assignment/home.dart';
 import 'package:assignment/splash_screen.dart';
 import 'package:assignment/truble_login_page.dart';
 import 'package:email_validator/email_validator.dart';
@@ -79,7 +80,8 @@ class _LogInScreenState extends State<LogInScreen> {
                       controller: _email,
                       decoration: InputDecoration(
                         prefixIcon: Icon(Icons.email),
-
+                        filled: true,
+                        fillColor: Colors.grey[200],
                         border: OutlineInputBorder(
                           borderSide: BorderSide(
                             color: Colors.grey,
@@ -117,6 +119,8 @@ class _LogInScreenState extends State<LogInScreen> {
                       obscureText: true,
                       style: TextStyle(color: Colors.red),
                       decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.grey[200],
                         prefixIcon: Icon(Icons.password),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10.0),
@@ -154,7 +158,7 @@ class _LogInScreenState extends State<LogInScreen> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => LogInScreen(),
+                            builder: (context) => Home(),
                           ),
                         );
                       },
