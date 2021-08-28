@@ -78,10 +78,15 @@ class _LogInScreenState extends State<LogInScreen> {
                   SizedBox(height: 5),
                   TextField(
                     controller: _email,
+                    style: TextStyle(
+                      fontSize: 20,
+                      height: 0.7,
+                    ),
                     decoration: InputDecoration(
                       prefixIcon: Icon(Icons.email),
                       filled: true,
                       fillColor: Colors.grey[200],
+
                       border: OutlineInputBorder(
                         borderSide: BorderSide(
                           color: Colors.grey,
@@ -117,7 +122,10 @@ class _LogInScreenState extends State<LogInScreen> {
                   TextField(
                     controller: _password,
                     obscureText: true,
-                    style: TextStyle(color: Colors.red),
+                    style: TextStyle(
+                      fontSize: 20,
+                      height: 0.7,
+                    ),
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: Colors.grey[200],
@@ -193,7 +201,9 @@ class _LogInScreenState extends State<LogInScreen> {
                 ],
               ),
 
-//Facebook and google login attach
+              //Facebook and google login attach
+              SocialLogin(),
+              SizedBox(height: 10),
 
               //Redirect to register page
               InkWell(
@@ -201,6 +211,7 @@ class _LogInScreenState extends State<LogInScreen> {
                   " Don't have an account?",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
+                    fontSize: 11,
                   ),
                 ),
                 onTap: () {
@@ -212,7 +223,7 @@ class _LogInScreenState extends State<LogInScreen> {
                   );
                 },
               ),
-              SizedBox(height: 10.0),
+              SizedBox(height: 30.0),
               Policies(),
             ],
           ),
@@ -222,6 +233,58 @@ class _LogInScreenState extends State<LogInScreen> {
   }
 }
 
+//Social login
+class SocialLogin extends StatelessWidget {
+  const SocialLogin({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Container(
+          width: 120,
+          child: OutlinedButton(
+            onPressed: () {},
+            // style: ButtonStyle(
+            //   shape: MaterialStateProperty.all(
+            //     RoundedRectangleBorder(
+            //       borderRadius: BorderRadius.circular(10.0),
+            //     ),
+            //   ),
+            // ),
+            style: OutlinedButton.styleFrom(shadowColor: Colors.purple),
+            child: Image.asset(
+              "assets/images/google.png",
+              height: 20.0,
+            ),
+          ),
+        ),
+        SizedBox(width: 15.0),
+        Container(
+          width: 120,
+          child: OutlinedButton(
+            onPressed: () {},
+            style: ButtonStyle(
+              shape: MaterialStateProperty.all(
+                RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+              ),
+            ),
+            child: Icon(
+              Icons.facebook,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+//Polices and terms
 class Policies extends StatelessWidget {
   const Policies({
     Key? key,
@@ -238,6 +301,10 @@ class Policies extends StatelessWidget {
             Center(
               child: Text(
                 "By continue to login, you accept our company's",
+                style: TextStyle(
+                  color: Colors.grey[600],
+                  fontSize: 10.0,
+                ),
               ),
             ),
           ],
@@ -250,18 +317,28 @@ class Policies extends StatelessWidget {
                 "Term & Conditions ",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
+                  color: Colors.grey[600],
+                  fontSize: 10.5,
                   decoration: TextDecoration.underline,
                 ),
               ),
               onTap: () {},
             ),
-            Text("and"),
+            Text(
+              "and",
+              style: TextStyle(
+                color: Colors.grey[600],
+                fontSize: 10.0,
+              ),
+            ),
             InkWell(
               child: Text(
-                " Privacy Policy",
+                " Privacy Policies",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
+                  color: Colors.grey[600],
                   decoration: TextDecoration.underline,
+                  fontSize: 10.5,
                 ),
               ),
               onTap: () {},

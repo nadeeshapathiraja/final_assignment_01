@@ -1,3 +1,7 @@
+import 'package:assignment/home.dart';
+import 'package:assignment/login_screen.dart';
+import 'package:assignment/splash_screen.dart';
+import 'package:assignment/truble_login_page.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +15,7 @@ class RegisterScreen extends StatefulWidget {
 class _RegisterScreenState extends State<RegisterScreen> {
   var _email = TextEditingController();
   var _password = TextEditingController();
-
+  var _phone = TextEditingController();
   var _emailError = "";
   @override
   Widget build(BuildContext context) {
@@ -24,65 +28,65 @@ class _RegisterScreenState extends State<RegisterScreen> {
             padding: EdgeInsets.all(20.0),
             child: Column(
               children: [
-                SizedBox(height: screenSize.height / 20),
+                SizedBox(height: screenSize.height / 60),
                 Row(
-                  crossAxisAlignment: CrossAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Column(
-                      children: [
-                        Container(
-                          width: screenSize.width / 3,
-                          child: Column(
-                            children: [
-                              Container(
-                                width: screenSize.width / 3,
-                                child: Image.asset("assets/images/XMLID 1.png"),
-                              ),
-                              Text(
-                                "Login to a lovely life.",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 30.0,
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(width: screenSize.width / 6),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
                         Container(
-                          width: screenSize.width / 3,
-                          child: Image.asset("assets/images/Frame.png"),
+                          width: 4 * screenSize.width / 9,
+                          child: Image.asset("assets/images/read.png"),
                         ),
                       ],
                     ),
                   ],
                 ),
-                SizedBox(height: screenSize.height / 20),
+                Row(
+                  children: [
+                    Text(
+                      "Register Here",
+                      style: TextStyle(
+                        fontSize: 30.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: screenSize.height / 50),
                 Column(
                   children: [
+                    Row(
+                      children: [
+                        Text(
+                          "Enter Your Email",
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 5),
                     TextField(
                       controller: _email,
+                      style: TextStyle(
+                        fontSize: 20,
+                        height: 0.7,
+                      ),
                       decoration: InputDecoration(
                         prefixIcon: Icon(Icons.email),
-                        labelText: "Email",
-
+                        filled: true,
+                        fillColor: Colors.grey[200],
                         border: OutlineInputBorder(
                           borderSide: BorderSide(
                             color: Colors.grey,
                           ),
-                          borderRadius: BorderRadius.circular(20.0),
+                          borderRadius: BorderRadius.circular(10.0),
                         ),
 
                         errorBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                             color: _emailError == "" ? Colors.grey : Colors.red,
                           ),
-                          borderRadius: BorderRadius.circular(20.0),
+                          borderRadius: BorderRadius.circular(10.0),
                         ),
                         //errorText: "Please Enter Valid Email",
                         errorText: _emailError,
@@ -95,32 +99,82 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         });
                       },
                     ),
+                    Row(
+                      children: [
+                        Text(
+                          "Enter Your mobile number",
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 5),
                     TextField(
-                      controller: _password,
+                      maxLength: 10,
+                      controller: _phone,
                       obscureText: true,
+                      style: TextStyle(
+                        fontSize: 20,
+                        height: 0.7,
+                      ),
                       decoration: InputDecoration(
-                        prefixIcon: Icon(Icons.password),
-                        labelText: "Password",
+                        filled: true,
+                        fillColor: Colors.grey[200],
+                        prefixIcon: Icon(Icons.phone),
                         border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20.0),
+                          borderRadius: BorderRadius.circular(10.0),
                         ),
                       ),
                     ),
+                    Row(
+                      children: [
+                        Text(
+                          "Enter Your Password",
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 5.0),
+                    TextField(
+                      controller: _password,
+                      obscureText: true,
+                      style: TextStyle(
+                        fontSize: 20,
+                        height: 0.7,
+                      ),
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.grey[200],
+                        prefixIcon: Icon(Icons.password),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                      ),
+                    ),
+
+                    SizedBox(height: 5.0),
+
+                    SizedBox(height: 20.0),
+                    //Custem button in splash Screen
+                    CustemButton(
+                      screenSize: screenSize,
+                      btnText: "Register",
+                      ontap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Home(),
+                          ),
+                        );
+                      },
+                    ),
+                    SocialLogin(),
+                    SizedBox(height: 10),
+                    Policies(),
                   ],
-                )
+                ),
               ],
             ),
           ),
         ),
       ),
     );
-  }
-
-  bool isNull() {
-    if (_email.text.isEmpty || _password.text.isEmpty) {
-      return false;
-    } else {
-      return true;
-    }
   }
 }

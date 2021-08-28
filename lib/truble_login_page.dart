@@ -1,3 +1,4 @@
+import 'package:assignment/login_screen.dart';
 import 'package:assignment/splash_screen.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +26,7 @@ class _TrubleLogState extends State<TrubleLog> {
             padding: EdgeInsets.all(20.0),
             child: Column(
               children: [
-                SizedBox(height: screenSize.height / 20),
+                SizedBox(height: screenSize.height / 10),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -34,6 +35,20 @@ class _TrubleLogState extends State<TrubleLog> {
                       height: 2 * screenSize.height / 9,
                       child: Image.asset("assets/images/forgot.png"),
                     ),
+                  ],
+                ),
+                SizedBox(
+                  height: 60,
+                ),
+                Row(
+                  children: [
+                    Text(
+                      "Trouble Log In?",
+                      style: TextStyle(
+                        fontSize: 30.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    )
                   ],
                 ),
                 SizedBox(height: screenSize.height / 20),
@@ -84,7 +99,9 @@ class _TrubleLogState extends State<TrubleLog> {
                       screenSize: screenSize,
                       btnText: "Send Reset Email",
                       ontap: () {},
-                    )
+                    ),
+                    SizedBox(height: screenSize.height / 6),
+                    Policies(),
                   ],
                 )
               ],
@@ -93,13 +110,5 @@ class _TrubleLogState extends State<TrubleLog> {
         ),
       ),
     );
-  }
-
-  bool isNull() {
-    if (_email.text.isEmpty || _password.text.isEmpty) {
-      return false;
-    } else {
-      return true;
-    }
   }
 }
