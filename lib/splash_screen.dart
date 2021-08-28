@@ -26,7 +26,8 @@ class _SplashScreenState extends State<SplashScreen> {
             SizedBox(height: 30.0),
             Row(
               children: [
-                Text("Let's get Closer"),
+                Text("Let's get Closer "),
+                Image.asset("assets/images/imoji.png", height: 15),
               ],
             ),
             SizedBox(height: 10.0),

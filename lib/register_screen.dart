@@ -166,7 +166,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       },
                     ),
                     SocialLogin(),
-                    SizedBox(height: 10),
+                    SizedBox(height: 20.0),
                     Policies(),
                   ],
                 ),
