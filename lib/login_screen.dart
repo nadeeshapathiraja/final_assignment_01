@@ -1,4 +1,5 @@
 import 'package:assignment/home.dart';
+import 'package:assignment/register_screen.dart';
 import 'package:assignment/splash_screen.dart';
 import 'package:assignment/truble_login_page.dart';
 import 'package:email_validator/email_validator.dart';
@@ -22,208 +23,252 @@ class _LogInScreenState extends State<LogInScreen> {
     return Scaffold(
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
-        child: Center(
-          child: Container(
-            padding: EdgeInsets.all(20.0),
-            child: Column(
-              children: [
-                SizedBox(height: screenSize.height / 30),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Column(
-                      children: [
-                        Container(
-                          width: screenSize.width / 3,
-                          child: Column(
-                            children: [
-                              Container(
-                                width: screenSize.width / 3,
-                                child: Image.asset("assets/images/XMLID 1.png"),
-                              ),
-                              Text(
-                                "Login to a lovely life.",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 30.0,
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(width: screenSize.width / 6),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Container(
-                          width: screenSize.width / 3,
-                          child: Image.asset("assets/images/Frame.png"),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-                SizedBox(height: screenSize.height / 30),
-                Column(
-                  children: [
-                    Row(
-                      children: [
-                        Text(
-                          "Enter Your Email",
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 5),
-                    TextField(
-                      controller: _email,
-                      decoration: InputDecoration(
-                        prefixIcon: Icon(Icons.email),
-                        filled: true,
-                        fillColor: Colors.grey[200],
-                        border: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Colors.grey,
-                          ),
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
-
-                        errorBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: _emailError == "" ? Colors.grey : Colors.red,
-                          ),
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
-                        //errorText: "Please Enter Valid Email",
-                        errorText: _emailError,
-                      ),
-                      onChanged: (value) {
-                        setState(() {
-                          _emailError = EmailValidator.validate(value)
-                              ? ""
-                              : "Please Enter Valid Email";
-                        });
-                      },
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          "Enter Your Password",
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 5),
-                    TextField(
-                      controller: _password,
-                      obscureText: true,
-                      style: TextStyle(color: Colors.red),
-                      decoration: InputDecoration(
-                        filled: true,
-                        fillColor: Colors.grey[200],
-                        prefixIcon: Icon(Icons.password),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: 5.0),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        InkWell(
-                          child: Text(
-                            "Trouble login?",
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
+        child: Container(
+          padding: EdgeInsets.all(20.0),
+          child: Column(
+            children: [
+              SizedBox(height: screenSize.height / 30),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Column(
+                    children: [
+                      Container(
+                        width: screenSize.width / 3,
+                        child: Column(
+                          children: [
+                            Container(
+                              width: screenSize.width / 3,
+                              child: Image.asset("assets/images/XMLID 1.png"),
                             ),
-                          ),
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => TrubleLog(),
+                            Text(
+                              "Login to a lovely life.",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 30.0,
                               ),
-                            );
-                          },
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 5.0),
-                    //Custem button in splash Screen
-                    CustemButton(
-                      screenSize: screenSize,
-                      btnText: "Login",
-                      ontap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => Home(),
-                          ),
-                        );
-                      },
-                    )
-                  ],
-                ),
-                SizedBox(height: 5),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Column(
-                      children: [
-                        Divider(
-                          color: Colors.teal.shade100,
-                          thickness: 1.0,
-                        ),
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        Text("Or"),
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        Divider(
-                          color: Colors.teal.shade100,
-                          thickness: 1.0,
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Center(
-                      child: Text(
-                        "By continue to login, you accept our company's",
-                      ),
-                    ),
-                    InkWell(
-                      child: Text(
-                        "Trouble login?",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
+                            )
+                          ],
                         ),
                       ),
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => TrubleLog(),
-                          ),
-                        );
-                      },
+                    ],
+                  ),
+                  SizedBox(width: screenSize.width / 6),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Container(
+                        width: screenSize.width / 3,
+                        child: Image.asset("assets/images/Frame.png"),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              SizedBox(height: screenSize.height / 30),
+              Column(
+                children: [
+                  Row(
+                    children: [
+                      Text(
+                        "Enter Your Email",
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 5),
+                  TextField(
+                    controller: _email,
+                    decoration: InputDecoration(
+                      prefixIcon: Icon(Icons.email),
+                      filled: true,
+                      fillColor: Colors.grey[200],
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.grey,
+                        ),
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+
+                      errorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: _emailError == "" ? Colors.grey : Colors.red,
+                        ),
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      //errorText: "Please Enter Valid Email",
+                      errorText: _emailError,
                     ),
-                  ],
-                )
-              ],
-            ),
+                    onChanged: (value) {
+                      setState(() {
+                        _emailError = EmailValidator.validate(value)
+                            ? ""
+                            : "Please Enter Valid Email";
+                      });
+                    },
+                  ),
+                  Row(
+                    children: [
+                      Text(
+                        "Enter Your Password",
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 5),
+                  TextField(
+                    controller: _password,
+                    obscureText: true,
+                    style: TextStyle(color: Colors.red),
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Colors.grey[200],
+                      prefixIcon: Icon(Icons.password),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 5.0),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      InkWell(
+                        child: Text(
+                          "Trouble login?",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => TrubleLog(),
+                            ),
+                          );
+                        },
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 5.0),
+                  //Custem button in splash Screen
+                  CustemButton(
+                    screenSize: screenSize,
+                    btnText: "Login",
+                    ontap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Home(),
+                        ),
+                      );
+                    },
+                  )
+                ],
+              ),
+              SizedBox(height: 5),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Column(
+                    children: [
+                      Divider(
+                        color: Colors.teal.shade100,
+                        thickness: 1.0,
+                      ),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      Text("Or"),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      Divider(
+                        color: Colors.teal.shade100,
+                        thickness: 1.0,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+
+//Facebook and google login attach
+
+              //Redirect to register page
+              InkWell(
+                child: Text(
+                  " Don't have an account?",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => RegisterScreen(),
+                    ),
+                  );
+                },
+              ),
+              SizedBox(height: 10.0),
+              Policies(),
+            ],
           ),
         ),
       ),
+    );
+  }
+}
+
+class Policies extends StatelessWidget {
+  const Policies({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            Center(
+              child: Text(
+                "By continue to login, you accept our company's",
+              ),
+            ),
+          ],
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            InkWell(
+              child: Text(
+                "Term & Conditions ",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  decoration: TextDecoration.underline,
+                ),
+              ),
+              onTap: () {},
+            ),
+            Text("and"),
+            InkWell(
+              child: Text(
+                " Privacy Policy",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  decoration: TextDecoration.underline,
+                ),
+              ),
+              onTap: () {},
+            ),
+          ],
+        ),
+      ],
     );
   }
 }
