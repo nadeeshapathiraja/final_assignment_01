@@ -1,5 +1,6 @@
 import 'package:assignment/login_screen.dart';
 import 'package:assignment/splash_screen.dart';
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 
@@ -98,7 +99,20 @@ class _TrubleLogState extends State<TrubleLog> {
                     CustemButton(
                       screenSize: screenSize,
                       btnText: "Send Reset Email",
-                      ontap: () {},
+                      ontap: () {
+                        AwesomeDialog(
+                          context: context,
+                          dialogType: DialogType.SUCCES,
+                          headerAnimationLoop: false,
+                          animType: AnimType.BOTTOMSLIDE,
+                          title: 'Your Email Sent Successfully',
+                          desc: 'Check your email now...',
+                          buttonsTextStyle: TextStyle(color: Colors.black),
+                          showCloseIcon: true,
+                          btnCancelOnPress: () {},
+                          btnOkOnPress: () {},
+                        )..show();
+                      },
                     ),
                     SizedBox(height: screenSize.height / 6),
                     Policies(),
