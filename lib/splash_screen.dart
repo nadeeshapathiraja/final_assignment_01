@@ -1,5 +1,6 @@
 import 'package:assignment/login_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:awesome_dialog/awesome_dialog.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -45,12 +46,22 @@ class _SplashScreenState extends State<SplashScreen> {
               screenSize: screenSize,
               btnText: "Get Started",
               ontap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => LogInScreen(),
-                  ),
-                );
+                AwesomeDialog(
+                  context: context,
+                  dialogType: DialogType.INFO,
+                  animType: AnimType.BOTTOMSLIDE,
+                  title: 'Welcome',
+                  desc: 'Are you ready to start your journey.............',
+                  btnCancelOnPress: () {},
+                  btnOkOnPress: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => LogInScreen(),
+                      ),
+                    );
+                  },
+                )..show();
               },
             ),
           ],

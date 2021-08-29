@@ -2,6 +2,7 @@ import 'package:assignment/home.dart';
 import 'package:assignment/login_screen.dart';
 import 'package:assignment/splash_screen.dart';
 import 'package:assignment/truble_login_page.dart';
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 
@@ -157,12 +158,42 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       screenSize: screenSize,
                       btnText: "Register",
                       ontap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => LogInScreen(),
-                          ),
-                        );
+                        AwesomeDialog(
+                          context: context,
+                          dialogType: DialogType.QUESTION,
+                          animType: AnimType.BOTTOMSLIDE,
+                          title: 'Welcome',
+                          desc: 'Do you want to Register now ?',
+                          btnCancelOnPress: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => SplashScreen(),
+                              ),
+                            );
+                          },
+                          btnOkOnPress: () {
+                            AwesomeDialog(
+                              context: context,
+                              dialogType: DialogType.SUCCES,
+                              headerAnimationLoop: false,
+                              animType: AnimType.BOTTOMSLIDE,
+                              title: 'Your Successfully Registered',
+                              desc: 'Are you want to login now.Press Ok...',
+                              buttonsTextStyle: TextStyle(color: Colors.black),
+                              showCloseIcon: true,
+                              btnCancelOnPress: () {},
+                              btnOkOnPress: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => LogInScreen(),
+                                  ),
+                                );
+                              },
+                            )..show();
+                          },
+                        )..show();
                       },
                     ),
                     SizedBox(height: 20.0),
