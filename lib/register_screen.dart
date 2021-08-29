@@ -160,11 +160,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => Home(),
+                            builder: (context) => LogInScreen(),
                           ),
                         );
                       },
                     ),
+                    SizedBox(height: 20.0),
+                    //--------Or------------
+                    OrWidget(screenSize: screenSize),
+                    SizedBox(height: 5.0),
+                    //Social login
                     SocialLogin(),
                     SizedBox(height: 20.0),
                     Policies(),
