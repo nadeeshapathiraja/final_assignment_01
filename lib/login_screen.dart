@@ -174,32 +174,9 @@ class _LogInScreenState extends State<LogInScreen> {
                 ],
               ),
               SizedBox(height: 5),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Column(
-                    children: [
-                      Divider(
-                        color: Colors.teal.shade100,
-                        thickness: 1.0,
-                      ),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      Text("Or"),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      Divider(
-                        color: Colors.teal.shade100,
-                        thickness: 1.0,
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+
+              //--------Or------------
+              OrWidget(screenSize: screenSize),
 
               //Facebook and google login attach
               SocialLogin(),
@@ -229,6 +206,55 @@ class _LogInScreenState extends State<LogInScreen> {
           ),
         ),
       ),
+    );
+  }
+}
+
+class OrWidget extends StatelessWidget {
+  const OrWidget({
+    Key? key,
+    required this.screenSize,
+  }) : super(key: key);
+
+  final Size screenSize;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Column(
+          children: [
+            Container(
+              width: screenSize.width / 4,
+              child: Divider(
+                height: 20,
+                thickness: 2,
+              ),
+            ),
+          ],
+        ),
+        SizedBox(
+          width: 10,
+        ),
+        Text(
+          "Or",
+        ),
+        SizedBox(
+          width: 10,
+        ),
+        Column(
+          children: [
+            Container(
+              width: screenSize.width / 4,
+              child: Divider(
+                height: 20,
+                thickness: 2,
+              ),
+            ),
+          ],
+        ),
+      ],
     );
   }
 }
