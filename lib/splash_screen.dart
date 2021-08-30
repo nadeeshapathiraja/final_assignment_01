@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:assignment/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
@@ -20,9 +21,13 @@ class _SplashScreenState extends State<SplashScreen> {
           //crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
-              height: 4 * screenSize.height / 9,
-              child: Image.asset("assets/images/Group 9image_grp.png"),
+            ElasticIn(
+              delay: Duration(milliseconds: 500),
+              duration: Duration(milliseconds: 3000),
+              child: Container(
+                height: 4 * screenSize.height / 9,
+                child: Image.asset("assets/images/Group 9image_grp.png"),
+              ),
             ),
             SizedBox(height: 30.0),
             Row(

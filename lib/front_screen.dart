@@ -26,88 +26,77 @@ class _FrontScreenState extends State<FrontScreen> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      body: Container(
-        width: double.infinity,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Transform(
-              transform: Matrix4.diagonal3Values(1, 1, 1),
-              child: Stack(
-                alignment: Alignment.center,
-                children: [
-                  Pulse(
-                    delay: Duration(milliseconds: 1000),
-                    duration: Duration(milliseconds: 1000),
-                    child: Container(
-                      width: 550,
-                      height: 550,
-                      decoration: BoxDecoration(
-                        color: Colors.pink.withOpacity(0.03),
-                        borderRadius: BorderRadius.circular(400.0),
-                      ),
-                    ),
-                  ),
-                  Pulse(
-                    delay: Duration(milliseconds: 1000),
-                    duration: Duration(milliseconds: 1000),
-                    child: Container(
-                      width: 400,
-                      height: 400,
-                      decoration: BoxDecoration(
-                        color: Colors.pink.withOpacity(0.05),
-                        borderRadius: BorderRadius.circular(400.0),
-                      ),
-                    ),
-                  ),
-                  Pulse(
-                    delay: Duration(milliseconds: 1000),
-                    duration: Duration(milliseconds: 1000),
-                    child: Container(
-                      width: 250,
-                      height: 250,
-                      decoration: BoxDecoration(
-                        color: Colors.pink.withOpacity(0.07),
-                        borderRadius: BorderRadius.circular(400.0),
-                      ),
-                    ),
-                  ),
-                  Pulse(
-                    delay: Duration(milliseconds: 1000),
-                    duration: Duration(milliseconds: 1000),
-                    child: Container(
-                      width: 120,
-                      height: 120,
-                      decoration: BoxDecoration(
-                        color: Colors.pink.withOpacity(0.1),
-                        borderRadius: BorderRadius.circular(400.0),
-                      ),
-                    ),
-                  ),
-                  ZoomIn(
-                    delay: Duration(milliseconds: 1000),
-                    duration: Duration(milliseconds: 1000),
-                    child: Container(
-                      child: Image.asset(
-                        "assets/images/XMLID 1.png",
-                        width: 120,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              child: Text(
-                "Find Your Soulmate",
-                style: TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: 'bold',
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Center(
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                CircleWidget(
+                  widthval: 400,
+                  heightval: 400,
+                  opacityval: 0.03,
                 ),
-              ),
+                CircleWidget(
+                  widthval: 300,
+                  heightval: 300,
+                  opacityval: 0.06,
+                ),
+                CircleWidget(
+                  widthval: 200,
+                  heightval: 200,
+                  opacityval: 0.05,
+                ),
+                CircleWidget(
+                  widthval: 100,
+                  heightval: 100,
+                  opacityval: 0.05,
+                ),
+                Image.asset(
+                  "assets/images/XMLID 1.png",
+                  width: 150,
+                )
+              ],
             ),
-          ],
+          ),
+          Text(
+            "Find Your Soulmate",
+            style: TextStyle(
+              fontSize: 25,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class CircleWidget extends StatelessWidget {
+  const CircleWidget({
+    Key? key,
+    required this.widthval,
+    required this.heightval,
+    required this.opacityval,
+  }) : super(key: key);
+
+  final double widthval;
+  final double heightval;
+  final double opacityval;
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      physics: const NeverScrollableScrollPhysics(),
+      child: Container(
+        width: widthval,
+        height: heightval,
+        decoration: BoxDecoration(
+          color: Colors.pink.withOpacity(opacityval),
+          borderRadius: BorderRadius.circular(400.0),
         ),
       ),
     );

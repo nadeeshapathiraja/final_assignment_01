@@ -26,6 +26,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         physics: BouncingScrollPhysics(),
         child: Center(
           child: Container(
+            color: Colors.white,
             padding: EdgeInsets.all(20.0),
             child: Column(
               children: [

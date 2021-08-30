@@ -31,7 +31,7 @@ class _HomeState extends State<Home> {
                 ),
               ),
               Text(
-                "வரவேற்பு",
+                "வணக்கம்",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 20,

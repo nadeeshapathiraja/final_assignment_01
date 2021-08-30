@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:assignment/home.dart';
 import 'package:assignment/register_screen.dart';
 import 'package:assignment/splash_screen.dart';
@@ -37,15 +38,23 @@ class _LogInScreenState extends State<LogInScreen> {
                         width: screenSize.width / 3,
                         child: Column(
                           children: [
-                            Container(
-                              width: screenSize.width / 3,
-                              child: Image.asset("assets/images/XMLID 1.png"),
+                            ElasticIn(
+                              delay: Duration(milliseconds: 500),
+                              duration: Duration(milliseconds: 3000),
+                              child: Container(
+                                width: screenSize.width / 3,
+                                child: Image.asset("assets/images/XMLID 1.png"),
+                              ),
                             ),
-                            Text(
-                              "Login to a lovely life.",
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 30.0,
+                            FadeIn(
+                              delay: Duration(milliseconds: 1000),
+                              duration: Duration(milliseconds: 3000),
+                              child: Text(
+                                "Login to a lovely life.",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 30.0,
+                                ),
                               ),
                             )
                           ],
