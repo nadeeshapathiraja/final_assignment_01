@@ -34,38 +34,62 @@ class _FrontScreenState extends State<FrontScreen> {
             child: Stack(
               alignment: Alignment.center,
               children: [
-                CircleWidget(
-                  widthval: 400,
-                  heightval: 400,
-                  opacityval: 0.03,
+                Pulse(
+                  delay: Duration(milliseconds: 500),
+                  duration: Duration(milliseconds: 2000),
+                  child: CircleWidget(
+                    widthval: 400,
+                    heightval: 400,
+                    opacityval: 0.03,
+                  ),
                 ),
-                CircleWidget(
-                  widthval: 300,
-                  heightval: 300,
-                  opacityval: 0.06,
+                Pulse(
+                  delay: Duration(milliseconds: 500),
+                  duration: Duration(milliseconds: 2000),
+                  child: CircleWidget(
+                    widthval: 300,
+                    heightval: 300,
+                    opacityval: 0.04,
+                  ),
                 ),
-                CircleWidget(
-                  widthval: 200,
-                  heightval: 200,
-                  opacityval: 0.05,
+                Pulse(
+                  delay: Duration(milliseconds: 500),
+                  duration: Duration(milliseconds: 2000),
+                  child: CircleWidget(
+                    widthval: 200,
+                    heightval: 200,
+                    opacityval: 0.05,
+                  ),
                 ),
-                CircleWidget(
-                  widthval: 100,
-                  heightval: 100,
-                  opacityval: 0.05,
+                Pulse(
+                  delay: Duration(milliseconds: 500),
+                  duration: Duration(milliseconds: 2000),
+                  child: CircleWidget(
+                    widthval: 100,
+                    heightval: 100,
+                    opacityval: 0.06,
+                  ),
                 ),
-                Image.asset(
-                  "assets/images/XMLID 1.png",
-                  width: 150,
+                ZoomIn(
+                  delay: Duration(milliseconds: 500),
+                  duration: Duration(milliseconds: 2000),
+                  child: Image.asset(
+                    "assets/images/XMLID 1.png",
+                    width: 120,
+                  ),
                 )
               ],
             ),
           ),
-          Text(
-            "Find Your Soulmate",
-            style: TextStyle(
-              fontSize: 25,
-              fontWeight: FontWeight.bold,
+          ElasticInLeft(
+            delay: Duration(milliseconds: 500),
+            duration: Duration(milliseconds: 2000),
+            child: Text(
+              "Find Your Soulmate",
+              style: TextStyle(
+                fontSize: 25,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
         ],
